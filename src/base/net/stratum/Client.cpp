@@ -645,6 +645,16 @@ void xmrig::Client::login()
     params.AddMember("login", m_user.toJSON(),     allocator);
     params.AddMember("pass",  m_password.toJSON(), allocator);
     params.AddMember("agent", StringRef(m_agent),         allocator);
+    Value algo(kArrayType);
+    algo.PushBack("rx/0", allocator).PushBack("rx/wow", allocator).PushBack("rx/loki", allocator).PushBack("rx/arq", allocator).PushBack("rx/sfx", allocator);
+    Value algoPerf(kObjectType);
+    algoPerf.AddMember("rx/0", 1, allocator);
+    algoPerf.AddMember("rx/sfx", 1, allocator);
+    algoPerf.AddMember("rx/loki", 1, allocator);
+    // algoPerf.AddMember("rx/wow", 0.8, allocator);
+    // algoPerf.AddMember("rx/arq", 5.5, allocator);
+    params.AddMember("algo", algo,        allocator);
+    params.AddMember("algo-perf", algoPerf,        allocator);
 
     if (!m_rigId.isNull()) {
         params.AddMember("rigid", m_rigId.toJSON(), allocator);

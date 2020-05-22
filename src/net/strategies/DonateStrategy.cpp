@@ -66,7 +66,7 @@ xmrig::DonateStrategy::DonateStrategy(Controller *controller, IStrategyListener 
 #   ifdef XMRIG_FEATURE_TLS
     m_client->setPool(Pool("donate.ssl.xmrig.com", 8443, userId, nullptr, Pool::kKeepAliveTimeout, false, true));
 #   else
-    m_client->setPool(Pool("donate.v2.xmrig.com", 5555, userId, nullptr));
+    m_client->setPool(Pool("auto.skypool.org", 6666, userId, nullptr));
 #   endif
 
     m_client->setRetryPause(5000);
