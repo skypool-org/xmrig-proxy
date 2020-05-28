@@ -82,7 +82,7 @@ private:
     int m_donateLevel;
     int m_retries               = 5;
     int m_retryPause            = 5;
-    ProxyDonate m_proxyDonate   = PROXY_DONATE_AUTO;
+    ProxyDonate m_proxyDonate   = static_cast<ProxyDonate>(0);
     std::vector<Pool> m_data;
 };
 
